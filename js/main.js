@@ -7,9 +7,10 @@ function app() {
       const isItemFiltered = !item.classList.contains(category);
       const isShowAll = category.toLowerCase() === "all";
       if (isItemFiltered && !isShowAll) {
-        item.classList.add("hide");
+        item.classList.add("anime");
       } else {
         item.classList.remove("hide");
+        item.classList.remove("anime");
       }
     });
   }
@@ -19,6 +20,17 @@ function app() {
       const currentCategory = button.dataset.filter;
       filter(currentCategory, cards);
     });
+  });
+
+  /**
+   * Добавляем класс для работы анимации изменения позиции каточек
+   */
+  cards.forEach((card) => {
+    card.ontransitionend = function () {
+      if (card.classList.contains("anime")) {
+        card.classList.add("hide");
+      }
+    };
   });
 }
 

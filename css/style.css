@@ -1,105 +1,131 @@
 :root {
-    --color-orange: #ffa728;
-    --color-red: #e66c6e;
-    --color-green: #a7d6bb;
-    --color-blue: #1c4961;
+  --color-orange: #ffa728;
+  --color-red: #e66c6e;
+  --color-green: #a7d6bb;
+  --color-blue: #1c4961;
 }
 
-*, *::after,*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 body {
-    background-color: #faebd7;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    line-height: 1.2;
+  background-color: #faebd7;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .header {
-    margin: 20px 0;
-    margin-bottom: 48px;
+  margin: 20px 0;
+  margin-bottom: 48px;
 }
 
 .filter {
-    display: flex;
-    justify-content: center;
-    max-width: 1024px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .button {
-    padding: 12px 24px;
-    margin-right: 18px;
-    cursor: pointer;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: 0;
-    outline: none;
-    border-radius: 20px;
-    position: relative;
+  padding: 12px 24px;
+  margin-right: 18px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 0;
+  outline: none;
+  border-radius: 20px;
+  position: relative;
 }
 
 .button:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .button:active {
-    bottom: -1px;
+  bottom: -1px;
 }
 
 .button_type_all {
-    background-color: var(--color-orange);
+  background-color: var(--color-orange);
 }
 
 .button_type_cat {
-    background-color: var(--color-red);
+  background-color: var(--color-red);
 }
 
 .button_type_dog {
-    background-color: var(--color-green);
+  background-color: var(--color-green);
 }
 
 .button_type_bird {
-    background-color: var(--color-blue);
+  background-color: var(--color-blue);
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1024px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .card {
-    display: flex;
-    width: calc(33.3333333% - 72px);
-    margin: 36px;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    font-size: 48px;
-    overflow: hidden;
-    text-transform: uppercase;
-    transition: .5s all;
+  display: flex;
+  width: calc(33.3333333% - 72px);
+  margin: 36px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 48px;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: 0.5s all;
+  border-radius: 15px;
 }
 
 .cat {
-    background-color: var(--color-red);
+  background-color: var(--color-red);
 }
 .dog {
-    background-color: var(--color-green);
+  background-color: var(--color-green);
 }
 .bird {
-    background-color: var(--color-blue);
+  background-color: var(--color-blue);
 }
 
+/* Анимация скрытия карточек */
+.anime {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* Анимация изменения позиции карточек */
 .hide {
-    display: none;
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hide {
+  from {
+    visibility: visible;
+    height: 200px;
+  }
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    max-width: 0;
+    font-size: 0;
+    margin: 0;
+  }
 }
